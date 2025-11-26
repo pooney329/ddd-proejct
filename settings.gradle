@@ -1,0 +1,6 @@
+rootProject.name = 'ddd-project'
+include 'presentation'
+include 'infrastructure'
+include 'application'
+include 'domain'
+

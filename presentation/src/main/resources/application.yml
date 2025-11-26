@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: common-project
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      jdbc-url: jdbc:mysql://localhost:3306/common_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowMultiQueries=TRUE&rewriteBatchedStatements=true
+      username: root
+      password: 1234
+      maximum-pool-size: 5
+      max-lifetime: 1800000
+      auto-commit: true
+    slave:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      jdbc-url: jdbc:mysql://localhost:3306/common_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowMultiQueries=TRUE&rewriteBatchedStatements=true
+      username: root
+      password: 1234
+      maximum-pool-size: 5
+      max-lifetime: 1800000
+      auto-commit: true
+
+  jpa:
+    open-in-view: false
+    show_sql: false
+    generate-ddl: true
+    hibernate:
+      ############################### 절대 수정 금지 #########################
+      ddl-auto: update
+      ####################################################################
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comment: true
+        default_batch_fetch_size: ${JPA.DEFAULT_BATCH_FETCH_SIZE}
+
+  data:
+    web:
+      pageable:
+        # excel 저장을 위해서 풀어둠
+        max-page-size: 20000
+#    redis:
+#      host: ${REDIS.HOST:null}
+#      port: ${REDIS.PORT:null}
+#      lettuce:
+#        pool:
+#          enabled: true
+#          max-active: 10
+#          max-idle: 10
+#          min-idle: 10
+#          max-wait: 10
+#          time-between-eviction-runs: ${REDIS.POOL.TIME_BETWEEN_EVICTION_RUNS}
+#      cluster:
+#        nodes: ${REDIS.CLUSTER.NODES}
+#

@@ -1,0 +1,101 @@
+buildscript {
+    ext {
+        springBootVersion = '3.3.5'
+        querydslVersion = "5.1.0:jakarta"
+        awsJavaVersion = "1.12.261"
+        mapStructVersion = "1.5.5.Final"
+    }
+
+}
+
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+
+subprojects {
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    configurations {
+        configureEach {
+            exclude group: 'commons-logging', module: 'commons-logging'
+        }
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        // lombok
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+        testCompileOnly "org.projectlombok:lombok"
+        testAnnotationProcessor "org.projectlombok:lombok"
+
+        // mapstruct
+        implementation "org.mapstruct:mapstruct:${mapStructVersion}"
+        annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+        annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+
+        // db
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+        // mysql
+        implementation "org.hibernate.orm:hibernate-community-dialects"
+        runtimeOnly 'com.mysql:mysql-connector-j'
+        testRuntimeOnly 'com.h2database:h2'
+
+        // apache commons
+        implementation "org.apache.commons:commons-text:1.8"
+        implementation 'org.apache.commons:commons-pool2:2.11.1'
+
+
+        implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.testcontainers:junit-jupiter'
+        testImplementation 'org.testcontainers:testcontainers'
+
+        implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+
+    }
+
+    test {
+        useJUnitPlatform()
+        ignoreFailures = true
+    }
+}
+
+bootRun {
+    enabled = false
+}
+
+bootJar {
+    enabled = false
+}
+
+bootBuildImage {
+    enabled = false
+}
+
+repositories {
+    mavenCentral()
+}

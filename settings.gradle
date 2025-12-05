@@ -3,4 +3,5 @@ include 'presentation'
 include 'infrastructure'
 include 'application'
 include 'domain'
+include 'batch'
 

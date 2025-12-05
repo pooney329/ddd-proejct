@@ -1,0 +1,39 @@
+plugins {
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'io.github.resilience4j:resilience4j-ratelimiter:2.0.0' // 버전은 상황에 맞게
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.batch:spring-batch-test'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+}
+
+test { // 스니펫 생성 test 테스크 설정
+    useJUnitPlatform()
+}
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    archivesBaseName = "prediction_batch"
+    archiveFileName = "prediction_batch.jar"
+    enabled = true
+}

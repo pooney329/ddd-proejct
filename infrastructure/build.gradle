@@ -1,0 +1,35 @@
+ext {
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+    // redis
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'org.redisson:redisson-spring-boot-starter:3.31.0'
+
+    // queryDSL
+    implementation "com.querydsl:querydsl-jpa:${querydslVersion}"
+
+
+}
+
+jar {
+    enabled = true
+}
+
+bootJar {
+    enabled = false
+}

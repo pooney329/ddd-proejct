@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: batch
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:mysql://localhost:3306/common_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowMultiQueries=TRUE&rewriteBatchedStatements=true
+    username: root
+    password: 1234
+    hikari:
+      maximum-pool-size: 5
+      max-lifetime: 1800000
+      auto-commit: true
+
+
+  batch:
+    jdbc:
+      initialize-schema: ALWAYS
+      isolation-level-for-create: default
+    job:
+      enabled: true
+      name: ${job.name:NONE}
+

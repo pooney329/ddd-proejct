@@ -1,0 +1,40 @@
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation project(":application")
+    implementation project(":infrastructure")
+    implementation project(":domain")
+
+    // spring
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+
+    testImplementation(project(":infrastructure"))
+    testImplementation "org.redisson:redisson-spring-boot-starter:3.35.0"
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    archivesBaseName = "prediction_api"
+    archiveFileName = "prediction_api.jar"
+    enabled = true
+}
+

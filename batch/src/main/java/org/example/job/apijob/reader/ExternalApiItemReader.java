@@ -1,9 +1,8 @@
-package org.example.reader;
+package org.example.job.apijob.reader;
 
-import org.example.Service.ExternalApiService;
-import org.example.dto.MyItem;
+import org.example.job.apijob.Service.ExternalApiService;
+import org.example.job.apijob.dto.MyItem;
 import org.springframework.batch.core.configuration.annotation.StepScope;
-import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.support.AbstractItemStreamItemReader;
 import org.springframework.stereotype.Component;
 

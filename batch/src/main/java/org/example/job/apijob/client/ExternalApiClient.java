@@ -1,13 +1,12 @@
-package org.example.client;
+package org.example.job.apijob.client;
 
 import io.github.resilience4j.ratelimiter.RateLimiter;
-import org.example.dto.ExternalApiItemDto;
-import org.example.port.ExternalApiPort;
+import org.example.job.apijob.dto.ExternalApiItemDto;
+import org.example.job.apijob.port.ExternalApiPort;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;

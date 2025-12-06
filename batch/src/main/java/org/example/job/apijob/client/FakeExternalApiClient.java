@@ -1,9 +1,9 @@
-package org.example.client;
+package org.example.job.apijob.client;
 
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import io.github.resilience4j.ratelimiter.RequestNotPermitted;
-import org.example.dto.ExternalApiItemDto;
-import org.example.port.ExternalApiPort;
+import org.example.job.apijob.dto.ExternalApiItemDto;
+import org.example.job.apijob.port.ExternalApiPort;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 

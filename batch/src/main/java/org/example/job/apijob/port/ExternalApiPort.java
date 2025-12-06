@@ -1,6 +1,6 @@
-package org.example.port;
+package org.example.job.apijob.port;
 
-import org.example.dto.ExternalApiItemDto;
+import org.example.job.apijob.dto.ExternalApiItemDto;
 
 import java.util.List;
 

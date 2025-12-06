@@ -1,8 +1,8 @@
-package org.example.step;
+package org.example.job.apijob;
 
-import org.example.dto.MyItem;
-import org.example.reader.ExternalApiItemReader;
-import org.example.wrtier.LoggingMyItemWriter;
+import org.example.job.apijob.dto.MyItem;
+import org.example.job.apijob.reader.ExternalApiItemReader;
+import org.example.job.apijob.wrtier.LoggingMyItemWriter;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;

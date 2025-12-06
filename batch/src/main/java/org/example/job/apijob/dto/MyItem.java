@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.job.apijob.dto;
 
 import lombok.*;
 

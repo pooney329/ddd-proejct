@@ -1,8 +1,8 @@
-package org.example.Service;
+package org.example.job.apijob.Service;
 
-import org.example.dto.ExternalApiItemDto;
-import org.example.dto.MyItem;
-import org.example.port.ExternalApiPort;
+import org.example.job.apijob.dto.ExternalApiItemDto;
+import org.example.job.apijob.dto.MyItem;
+import org.example.job.apijob.port.ExternalApiPort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

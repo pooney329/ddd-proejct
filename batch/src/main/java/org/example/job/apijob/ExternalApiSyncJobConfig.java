@@ -1,4 +1,4 @@
-package org.example.job;
+package org.example.job.apijob;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;

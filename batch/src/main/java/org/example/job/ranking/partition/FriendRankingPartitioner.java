@@ -24,14 +24,14 @@ public class FriendRankingPartitioner implements Partitioner {
     public Map<String, ExecutionContext> partition(int gridSize) {
         Map<String, ExecutionContext> executionContextMap = new HashMap<>();
         String sql = """
-            select MIN(member_idx) as minMemberIndex, MAX(member_idx) as maxMemberIndex from friend
-        """;
+                    select MIN(member_idx) as minMemberIndex, MAX(member_idx) as maxMemberIndex from friend
+                """;
         FriendMinMaxDto friendMinMaxDto = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(FriendMinMaxDto.class))
                 .stream()
                 .findFirst()
                 .orElse(null);
 
-        if(Objects.isNull(friendMinMaxDto) || Objects.isNull(friendMinMaxDto.minMemberIndex) || Objects.isNull(friendMinMaxDto.maxMemberIndex)){
+        if (Objects.isNull(friendMinMaxDto) || Objects.isNull(friendMinMaxDto.minMemberIndex) || Objects.isNull(friendMinMaxDto.maxMemberIndex)) {
             return executionContextMap;
         }
 
@@ -43,9 +43,9 @@ public class FriendRankingPartitioner implements Partitioner {
         long end = start + size - 1;
 
 
-        for(int i=0; i<gridSize; i++){
-            if(start > friendMinMaxDto.maxMemberIndex) break;
-            if(end > friendMinMaxDto.maxMemberIndex) {
+        for (int i = 0; i < gridSize; i++) {
+            if (start > friendMinMaxDto.maxMemberIndex) break;
+            if (end > friendMinMaxDto.maxMemberIndex) {
                 end = friendMinMaxDto.maxMemberIndex;
             }
             ExecutionContext executionContext = new ExecutionContext();

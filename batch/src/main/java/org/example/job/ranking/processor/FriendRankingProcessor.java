@@ -23,7 +23,7 @@ public class FriendRankingProcessor implements ItemProcessor<FriendScoreRow, Fri
         ;
         Long friendIdx = item.getFriendIdx();
         ;
-
+        if(item.getMemberIdx() == 3500) throw new RuntimeException();
         //신규 진입 이거나 member가 바뀐 경우 랭킹 조기화 진행
         if (Objects.isNull(currentMemberIdx) || !currentMemberIdx.equals(memberIdx)) {
             currentMemberIdx = memberIdx;

@@ -23,5 +23,11 @@ public class MemberCommandController {
         return memberService.join(memberJoinCommand.name());
     }
 
+    @PostMapping("/redis")
+    public Long saveMember() {
+        memberService.saveMember();
+        return 1L;
+    }
+
 
 }

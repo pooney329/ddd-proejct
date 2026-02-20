@@ -8,4 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface MemberRepository {
     MemberEntity save(MemberEntity member);
     Page<MemberEntity> search(MemberSearchCondition condition, Pageable pageable);
+
 }

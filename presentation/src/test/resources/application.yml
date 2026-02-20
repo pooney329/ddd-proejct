@@ -20,6 +20,7 @@ spring:
       maximum-pool-size: 5
       max-lifetime: 1800000
       auto-commit: true
+
   jpa:
     open-in-view: false
     show_sql: false
@@ -39,19 +40,6 @@ spring:
       pageable:
         # excel 저장을 위해서 풀어둠
         max-page-size: 20000
-    redis:
-      host: localhost
-      port: 6379
-      password:
-      timeout: 3s
-      lettuce:
-        pool:
-          max-active: 20
-          max-idle: 10
-          min-idle: 5
-          max-wait: 2s
-
-#  redis:
 #    redis:
 #      host: ${REDIS.HOST:null}
 #      port: ${REDIS.PORT:null}

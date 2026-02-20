@@ -20,7 +20,7 @@ dependencies {
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
     testImplementation(project(":infrastructure"))
-    testImplementation "org.redisson:redisson-spring-boot-starter:3.35.0"
+//    testImplementation "org.redisson:redisson-spring-boot-starter:3.35.0"
 
 }
 
